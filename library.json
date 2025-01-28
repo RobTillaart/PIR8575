@@ -1,6 +1,6 @@
 {
   "name": "PIR8575",
-  "keywords": "I2C, PCF8575, PCF8574, I2C",
+  "keywords": "I2C, PCF8575, PCF8574, multi",
   "description": "Arduino library for 16 channel PIR detection system based upon PCF8575.",
   "authors":
   [
