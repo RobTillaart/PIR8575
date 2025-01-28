@@ -18,23 +18,27 @@ Arduino library for 16 channel PIR detection system based upon PCF8575.
 
 **Experimental**
 
-The library gives control over 16 parallel PIR devices over I2C.
+The library gives control over up to 16 parallel working PIR devices over I2C.
 
 The library is not tested with hardware yet.
 
-The library is based upon the PCF8575 and is expected to work to some extend 
-with the PCF8574
+The library is based upon the well tested PCF8575 library (stripped version)
+and is expected to work to some extend with the PCF8574. (to be verified).
+
+To connect the PIR units one has to connect a separate power supply as these
+cannot be powered by a typical microprocessor.
 
 Base address = 0x20 + 0..7 depending on address pins A0..A2.
 
 
 ### Interrupts intro
 
-The PIR8575 has an interrupt output line (INT) to notify an MCU that one of the 
-input lines has changed.
-This can be used to prevent active polling of the PCF8575, which can be more efficient.
+The PIR8575 (PCF8575) has an interrupt output line (INT) to notify an MCU
+that one of the input lines has changed status
+This can be used to prevent active polling of the PCF8575, which can be 
+more efficient.
 
-See datasheet for details.
+See datasheet PCF8575 for details.
 
 
 ### Related
@@ -83,10 +87,13 @@ I2C device address, and the optional Wire interface as parameter.
 #### Should
 
 - add examples (PIR scanner 360 degrees)
+- polarity of all pins - in begin()?  (conditional XOR in read).
 
 #### Could
 
 - move code to .cpp
+- use of mask during read
+- configure number of PIR's (1..16) in begin()?.
 
 #### Wont
 
